@@ -53,5 +53,7 @@ public class MainMenuView : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     {
         _buttonStart.onClick.RemoveAllListeners();
     }
+
+    public string SelectedControlMethod => ((InputMethod)_controlMethodDropdown.value).ToString();
 }
 
