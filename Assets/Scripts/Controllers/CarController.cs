@@ -1,7 +1,7 @@
 ﻿using Tools;
 using UnityEngine;
 
-public class CarController : BaseController
+public class CarController : BaseController, IAbilityActivator
 {
     private readonly CarView _carView;
 

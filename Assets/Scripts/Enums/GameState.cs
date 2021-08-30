@@ -4,7 +4,8 @@
     {
         None,
         Start,
-        Game
+        Game,
+        Garage
     }
 }
 

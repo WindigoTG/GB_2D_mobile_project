@@ -20,7 +20,7 @@ namespace Game.InputLogic
 
         private void Move()
         {
-            float moveStep = 10 * Time.deltaTime * CrossPlatformInputManager.GetAxis("Horizontal");
+            float moveStep = _speed * Time.deltaTime * CrossPlatformInputManager.GetAxis("Horizontal");
             Debug.Log(CrossPlatformInputManager.GetAxis("Horizontal"));
             if (moveStep > 0)
                 OnRightMove(moveStep);
