@@ -1,10 +1,19 @@
-﻿public class Car
+﻿public class Car : IUpgradableCar
 {
-    public float Speed { get;}
+    private readonly float _defaultSpeed;
+
+    public float Speed { get; set; }
 
     public Car(float speed)
     {
-        Speed = speed;
+        _defaultSpeed = speed;
+        Restore();
     }
+
+    public void Restore()
+    {
+        Speed = _defaultSpeed;
+    }
+
 }
 

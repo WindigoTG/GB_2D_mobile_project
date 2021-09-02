@@ -321,6 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _placeForUi: {fileID: 1952736217}
   _ads: {fileID: 1696583109}
+  _upgradeItemDataSource: {fileID: 11400000, guid: 3cd15b88552d86c42ab98228f7f3e387, type: 2}
+  test: {fileID: 0}
 --- !u!1 &1696583108
 GameObject:
   m_ObjectHideFlags: 0

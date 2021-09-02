@@ -3,7 +3,7 @@ using Profile;
 
 public class GameController : BaseController
 {
-    public GameController(PlayerProfile playerProfile)
+    public GameController(PlayerProfile playerProfile, DistanceTracker distanceTracker)
     {
         var leftMoveDiff = new SubscriptionProperty<float>();
         var rightMoveDiff = new SubscriptionProperty<float>();
@@ -16,6 +16,8 @@ public class GameController : BaseController
             
         var carController = new CarController(leftMoveDiff, rightMoveDiff);
         AddController(carController);
+
+        distanceTracker.Init(leftMoveDiff, rightMoveDiff);
     }
 }
 

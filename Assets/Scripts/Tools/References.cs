@@ -9,4 +9,5 @@ public static class References
     public const string SWIPE_CONTROL_PREFAB_PATH = "control_Swipe";
     public const string TAP_CONTROL_PREFAB_PATH = "control_Tap";
     public const string BACKGROUND_PREFAB_PATH = "background";
+    public const string INVENTORY_PREFAB_PATH = "Inventory";
 }
