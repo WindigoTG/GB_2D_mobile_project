@@ -1,9 +1,10 @@
 ﻿using Tools;
 using Profile;
+using UnityEngine;
 
 public class GameController : BaseController
 {
-    public GameController(PlayerProfile playerProfile, DistanceTracker distanceTracker)
+    public GameController(PlayerProfile playerProfile, Transform placeForUi)
     {
         var leftMoveDiff = new SubscriptionProperty<float>();
         var rightMoveDiff = new SubscriptionProperty<float>();
@@ -17,7 +18,22 @@ public class GameController : BaseController
         var carController = new CarController(leftMoveDiff, rightMoveDiff);
         AddController(carController);
 
-        distanceTracker.Init(leftMoveDiff, rightMoveDiff);
+        var abilityController = ConfigureAbilityController(placeForUi, carController);
     }
+
+    private IAbilitiesController ConfigureAbilityController(Transform placeForUi, IAbilityActivator abilityActivator)
+    {
+        var abilityItemsConfigCollection = ContentDataSourceLoader.LoadAbilityItemConfigs(References.ABILITY_ITEM_CONFIG_DATA_SOURCE_PATH);
+        var abilityRepository = new AbilityRepository(abilityItemsConfigCollection);
+        var abilityCollectionView = ResourceLoader.LoadAndInstantiateObject<AbilityCollectionView>(References.ABILITY_COLLECTION_PREFAB_PATH, placeForUi, false);
+        AddGameObject(abilityCollectionView.gameObject);
+
+        var inventoryModel = new InventoryModel();
+        var abilitiesController = new AbilitiesController(abilityRepository, inventoryModel, abilityCollectionView, abilityActivator);
+        AddController(abilitiesController);
+
+        return abilitiesController;
+    }
+
 }
 

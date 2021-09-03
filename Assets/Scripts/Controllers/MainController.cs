@@ -10,7 +10,6 @@ public class MainController : BaseController
     private readonly Transform _placeForUi;
     private readonly PlayerProfile _playerProfile;
     private UpgradeItemConfigDataSource _upgradeItemDataSource;
-    private DistanceTracker _distanceTracker;
 
     public MainController(Transform placeForUi, PlayerProfile playerProfile, UpgradeItemConfigDataSource upgradeItemDataSource)
     {
@@ -18,7 +17,6 @@ public class MainController : BaseController
         _placeForUi = placeForUi;
         OnChangeGameState(_playerProfile.CurrentState.Value);
         playerProfile.CurrentState.SubscribeOnChange(OnChangeGameState);
-        _distanceTracker = new DistanceTracker(_playerProfile);
         _upgradeItemDataSource = upgradeItemDataSource;
     }
 
@@ -31,14 +29,9 @@ public class MainController : BaseController
                 _gameController?.Dispose();
                 break;
             case GameState.Game:
-                _gameController = new GameController(_playerProfile, _distanceTracker);
+                _gameController = new GameController(_playerProfile, _placeForUi);
                 _mainMenuController?.Dispose();
                 _garageController?.Dispose();
-                break;
-            case GameState.Garage:
-                _garageController = new GarageController(_upgradeItemDataSource.itemConfigs, _playerProfile, _placeForUi);
-                _garageController.Enter();
-                _gameController?.Dispose();
                 break;
             default:
                 _mainMenuController?.Dispose();

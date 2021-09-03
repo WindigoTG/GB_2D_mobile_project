@@ -3,27 +3,27 @@ using System.Collections.Generic;
 public class InventoryModel : IInventoryModel
 {
     private static readonly List<IItem> _emptyCollection = new List<IItem>();
-    private readonly List<IItem> _items = new List<IItem>();
+    private readonly List<IItem> _equippedItems = new List<IItem>();
 
     public IReadOnlyList<IItem> GetEquippedItems()
     {
-        return _items ?? _emptyCollection;
+        return _equippedItems ?? _emptyCollection;
     }
 
     public void EquipItem(IItem item)
     {
-        if (_items.Contains(item))
+        if (_equippedItems.Contains(item))
             return;
 
-        _items.Add(item);
+        _equippedItems.Add(item);
     }
 
     public void UnequipItem(IItem item)
     {
-        if (!_items.Contains(item))
+        if (!_equippedItems.Contains(item))
             return;
 
-        _items.Remove(item);
+        _equippedItems.Remove(item);
     }
 }
 
