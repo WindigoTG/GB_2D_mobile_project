@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public class ItemsRepository : BaseController, IItemsRepository
+public class ItemsRepository : BaseController, IRepository<int, IItem>
 {
     private Dictionary<int, IItem> _itemsMapById = new Dictionary<int, IItem>();
 
@@ -10,6 +10,8 @@ public class ItemsRepository : BaseController, IItemsRepository
     }
 
     public IReadOnlyDictionary<int, IItem> Items => _itemsMapById;
+
+    public IReadOnlyDictionary<int, IItem> Collection => throw new System.NotImplementedException();
 
     private void PopulateItems(List<ItemConfig> configs)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ability item", menuName = "Ability item", order = 0)]
+[CreateAssetMenu(fileName = "Ability item", menuName = "Abilities/Ability item", order = 0)]
 public class AbilityItemConfig : ScriptableObject
 {
     public ItemConfig itemConfig;
