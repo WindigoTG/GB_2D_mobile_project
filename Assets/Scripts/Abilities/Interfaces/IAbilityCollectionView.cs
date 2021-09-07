@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public interface IAbilityCollectionView
+public interface IAbilityCollectionView : IView
 {
     event EventHandler<IItem> UseRequested;
     void Display(IReadOnlyList<IItem> abilityItems);
