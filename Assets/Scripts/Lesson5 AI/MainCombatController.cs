@@ -1,28 +1,39 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AI
 {
     public class MainCombatController : MonoBehaviour
     {
-        [SerializeField] StatsUIHandler _playerStatsDisplay;
-        [SerializeField] StatsUIHandler _enemyStatsDisplay;
+        [SerializeField]
+        private StatsUIHandler _playerStatsDisplay;
+        [SerializeField]
+        private StatsUIHandler _enemyStatsDisplay;
 
-        [SerializeField] GamePhase _statAssignPhaseWindow;
-        [SerializeField] GamePhase _playerPhaseWindow;
-        [SerializeField] GamePhase _enemyPhaseWindow;
+        [SerializeField]
+        private GamePhase _statAssignPhaseWindow;
+        [SerializeField]
+        private GamePhase _playerPhaseWindow;
+        [SerializeField]
+        private GamePhase _enemyPhaseWindow;
 
-        Queue<GamePhase> _turnOrder = new Queue<GamePhase>();
+        [SerializeField]
+        private Image _playerViewImage;
+        [SerializeField]
+        private Image _enemyViewImage;
 
-        Combatant _player = new PlayerCombatant("Player");
-        Combatant _enemy = new EnemyCombatant("Enemy");
+        private Queue<GamePhase> _turnOrder = new Queue<GamePhase>();
 
-        readonly int _abilitiCoeff = 15;
-        readonly int _basicPowerCoeff = 200;
-        readonly int _basicAccuracyCoeff = 2;
-        readonly int _basicCritCoeff = 2;
-        readonly int _minDamage = 10;
-        readonly float _critMultiplier = 1.25f;
+        private Combatant _player = new PlayerCombatant("Player");
+        private Combatant _enemy = new EnemyCombatant("Enemy");
+
+        private readonly int _abilitiCoeff = 15;
+        private readonly int _basicPowerCoeff = 200;
+        private readonly int _basicAccuracyCoeff = 2;
+        private readonly int _basicCritCoeff = 2;
+        private readonly int _minDamage = 10;
+        private readonly float _critMultiplier = 1.25f;
 
         public bool IsSetupDone { get; private set; }
 
@@ -34,8 +45,8 @@ namespace AI
             _playerPhaseWindow.Init(_player, _enemy, this);
             _enemyPhaseWindow.Init(_player, _enemy, this);
 
-            _player.SetUp();
-            _enemy.SetUp();
+            _player.SetUp(_playerViewImage);
+            _enemy.SetUp(_enemyViewImage);
         }
 
         private void Start()
@@ -136,9 +147,10 @@ namespace AI
                 Debug.Log($"<color=#FFFF00>Critical hit!</color>");
 
             int finalDamage = defender.action == CombatAction.Defence ? damage / 2 : damage;
+            bool isDefending = defender.action == CombatAction.Defence ? true : false;
 
             Debug.Log($"{defender.combatant.Name} got hit for {finalDamage}");
-            defender.combatant.GetDamage(finalDamage);
+            defender.combatant.GetDamage(finalDamage, isDefending);
 
             attacker.combatant.GainMoraleForAttack(true);
             defender.combatant.GainMoraleForDodge(false);
