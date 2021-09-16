@@ -23,7 +23,7 @@ namespace AI
             gameObject.SetActive(false);
         }
 
-        public override void Init(Combatant player, Combatant enemy, MainCombatController combatController)
+        public override void Init(Combatant player, Combatant enemy, FightView combatController)
         {
             _combatController = combatController;
 

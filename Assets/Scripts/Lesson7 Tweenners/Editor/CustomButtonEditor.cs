@@ -1,48 +1,53 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-[CustomEditor(typeof(CustomButton))]
-public class CustomButtonEditor : ButtonEditor
+namespace Tween
 {
-    private SerializedProperty m_InteractableProperty;
-
-    protected override void OnEnable()
+    [CustomEditor(typeof(CustomButton))]
+    public class CustomButtonEditor : ButtonEditor
     {
-        m_InteractableProperty = serializedObject.FindProperty("m_Interactable");
-    }
+        private SerializedProperty m_InteractableProperty;
 
-    public override VisualElement CreateInspectorGUI()
-    {
-        var root = new VisualElement();
+        protected override void OnEnable()
+        {
+            m_InteractableProperty = serializedObject.FindProperty("m_Interactable");
+        }
 
-        var changeButtonType = new PropertyField(serializedObject.FindProperty(CustomButton.ChangeButtonType));
-        var curveEase = new PropertyField(serializedObject.FindProperty(CustomButton.CurveEase));
-        var duration = new PropertyField(serializedObject.FindProperty(CustomButton.Duration));
+        public override VisualElement CreateInspectorGUI()
+        {
+            var root = new VisualElement();
 
-        var tweenLabel = new Label("Settings Tween");
-        var intractableLabel = new Label("Intractable");
+            var changeButtonType = new PropertyField(serializedObject.FindProperty(CustomButton.ChangeButtonType));
+            var curveEase = new PropertyField(serializedObject.FindProperty(CustomButton.CurveEase));
+            var duration = new PropertyField(serializedObject.FindProperty(CustomButton.Duration));
 
-        root.Add(tweenLabel);
-        root.Add(changeButtonType);
-        root.Add(curveEase);
-        root.Add(duration);
+            var tweenLabel = new Label("Settings Tween");
+            var intractableLabel = new Label("Intractable");
 
-        root.Add(intractableLabel);
-        root.Add(new IMGUIContainer(OnInspectorGUI));
+            root.Add(tweenLabel);
+            root.Add(changeButtonType);
+            root.Add(curveEase);
+            root.Add(duration);
 
-        return root;
-    }
+            root.Add(intractableLabel);
+            root.Add(new IMGUIContainer(OnInspectorGUI));
 
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
+            return root;
+        }
 
-        EditorGUILayout.PropertyField(m_InteractableProperty);
+        public override void OnInspectorGUI()
+        {
+            serializedObject.Update();
 
-        EditorGUI.BeginChangeCheck();
+            EditorGUILayout.PropertyField(m_InteractableProperty);
 
-        serializedObject.ApplyModifiedProperties();
+            EditorGUI.BeginChangeCheck();
+
+            serializedObject.ApplyModifiedProperties();
+        }
     }
 }
+#endif

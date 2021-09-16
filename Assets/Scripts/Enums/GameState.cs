@@ -3,9 +3,11 @@
     public enum GameState
     {
         None,
-        Start,
+        Menu,
         Game,
-        Garage
+        Garage,
+        Rewards,
+        Fight
     }
 }
 

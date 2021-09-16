@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace AI
 {
-    public class MainCombatController : MonoBehaviour
+    public class FightView : MonoBehaviour
     {
         [SerializeField]
         private StatsUIHandler _playerStatsDisplay;
@@ -23,6 +23,9 @@ namespace AI
         [SerializeField]
         private Image _enemyViewImage;
 
+        [SerializeField]
+        private Button _buttonLeaveFight;
+
         private Queue<GamePhase> _turnOrder = new Queue<GamePhase>();
 
         private Combatant _player = new PlayerCombatant("Player");
@@ -36,6 +39,7 @@ namespace AI
         private readonly float _critMultiplier = 1.25f;
 
         public bool IsSetupDone { get; private set; }
+        public Button ButtonLeaveFight  => _buttonLeaveFight;
 
         private void Awake()
         {

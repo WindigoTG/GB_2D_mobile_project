@@ -34,7 +34,7 @@ namespace AI
             _combatController.StartGame();
         }
 
-        public override void Init(Combatant player, Combatant enemy, MainCombatController combatController)
+        public override void Init(Combatant player, Combatant enemy, FightView combatController)
         {
             _combatController = combatController;
             _player = player;
