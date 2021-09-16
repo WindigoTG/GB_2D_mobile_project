@@ -4,20 +4,28 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 using UnityEngine.EventSystems;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class MainMenuView : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [SerializeField] private Button _buttonStart;
+    [SerializeField] private Button _buttonRewards;
+    [SerializeField] private Button _buttonExit;
     [SerializeField] private Dropdown _controlMethodDropdown;
     [SerializeField] private Transform _trail;
         
-    public void Init(UnityAction startGame, UnityAction<int> receiveDropdownValue)
+    public void Init(UnityAction startGame, UnityAction<int> receiveDropdownValue, UnityAction showRewardsWindow)
     {
         _buttonStart.onClick.AddListener(startGame);
 
         FillDropdownOptions();
 
         _controlMethodDropdown.onValueChanged.AddListener(receiveDropdownValue);
+
+        _buttonRewards.onClick.AddListener(showRewardsWindow);
+        _buttonExit.onClick.AddListener(ExitGame);
     }
 
     private void FillDropdownOptions()
@@ -52,6 +60,18 @@ public class MainMenuView : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     protected void OnDestroy()
     {
         _buttonStart.onClick.RemoveAllListeners();
+        _buttonRewards.onClick.RemoveAllListeners();
+        _buttonExit.onClick.RemoveAllListeners();
+
+    }
+
+    public void ExitGame()
+    {
+        #if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+        #else
+            Application.Quit();
+        #endif
     }
 
     public string SelectedControlMethod => ((InputMethod)_controlMethodDropdown.value).ToString();

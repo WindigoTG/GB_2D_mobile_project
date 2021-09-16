@@ -19,6 +19,7 @@ public class GameController : BaseController
         AddController(carController);
 
         var abilityController = ConfigureAbilityController(placeForUi, carController);
+        AddController(abilityController as BaseController);
     }
 
     private IAbilitiesController ConfigureAbilityController(Transform placeForUi, IAbilityActivator abilityActivator)

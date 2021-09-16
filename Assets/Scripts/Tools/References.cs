@@ -13,4 +13,9 @@ public static class References
     public const string UPGRADE_ITEM_CONFIG_DATA_SOURCE_PATH = "UpgradeItemConfigDataSource";
     public const string ABILITY_ITEM_CONFIG_DATA_SOURCE_PATH = "AbilityItemConfigDataSource";
     public const string ABILITY_COLLECTION_PREFAB_PATH = "AbilityCollection";
+    public const string CURRENCY_VIEW_PREFAB_PATH = "currency_window";
+    public const string DAILY_REWARD_VIEW_PREFAB_PATH = "daily_reward_window";
+    public const string WEEKLY_REWARD_VIEW_PREFAB_PATH = "weekly_reward_window";
+    public const string START_FIGHT_VIEW_PREFAB_PATH = "start_fight_window";
+    public const string FIGHT_VIEW_PREFAB_PATH = "fight_window";
 }

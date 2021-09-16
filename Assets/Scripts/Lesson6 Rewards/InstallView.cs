@@ -16,7 +16,7 @@ namespace Rewards
 
         private void Awake()
         {
-            _rewardController = new RewardController(_dailyRewardView, _weeklyRewardView, _resetButton);
+            //_rewardController = new RewardController(_dailyRewardView, _weeklyRewardView, _resetButton);
         }
 
         private void Start()

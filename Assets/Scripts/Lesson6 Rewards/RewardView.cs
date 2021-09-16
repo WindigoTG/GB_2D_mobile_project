@@ -89,8 +89,6 @@ namespace Rewards
         {
             CurrentActiveSlotKey = CurrentActiveSlotKeyPrefix + _rewardPeriod.ToString();
             LastRewardTimeKey = LastRewardTimeKeyPrefix + _rewardPeriod.ToString();
-            Debug.Log(CurrentActiveSlotKey);
-            Debug.Log(LastRewardTimeKey);
         }
 
         private void OnDestroy()

@@ -1,3 +1,4 @@
+using Profile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,10 +7,12 @@ using UnityEngine.UI;
 
 namespace Rewards
 {
-    public class RewardController
+    public class RewardController : BaseController
     {
         private RewardView _dailyRewardView;
         private RewardView _weeklyRewardView;
+        private CurrencyView _currencyView;
+        private PlayerProfile _playerProfile;
         private List<ContainerSlotRewardView> _slotsDaily;
         private List<ContainerSlotRewardView> _slotsWeekly;
 
@@ -19,13 +22,18 @@ namespace Rewards
         private float _progressDaily;
         private float _progressWeekly;
 
-        private Button _resetButton;
-
-        public RewardController(RewardView dailyView, RewardView weeklyView, Button resetButton)
+        public RewardController(Transform placeForUi, PlayerProfile playerProfile)
         {
-            _dailyRewardView = dailyView;
-            _weeklyRewardView = weeklyView;
-            _resetButton = resetButton;
+            _weeklyRewardView = ResourceLoader.LoadAndInstantiateObject<RewardView>(References.WEEKLY_REWARD_VIEW_PREFAB_PATH, placeForUi, false);
+            AddGameObject(_weeklyRewardView.gameObject);
+            _dailyRewardView = ResourceLoader.LoadAndInstantiateObject<RewardView>(References.DAILY_REWARD_VIEW_PREFAB_PATH, placeForUi, false);
+            AddGameObject(_dailyRewardView.gameObject);
+            _currencyView = ResourceLoader.LoadAndInstantiateObject<CurrencyView>(References.CURRENCY_VIEW_PREFAB_PATH, placeForUi, false);
+            AddGameObject(_currencyView.gameObject);
+
+            _playerProfile = playerProfile;
+
+            RefreshView();
         }
 
         public void RefreshView()
@@ -164,7 +172,8 @@ namespace Rewards
         {
             _dailyRewardView.ClaimRewardButton.onClick.AddListener(() => ClaimReward(RewardPeriod.Daily));
             _weeklyRewardView.ClaimRewardButton.onClick.AddListener(() => ClaimReward(RewardPeriod.Weekly));
-            _resetButton.onClick.AddListener(ResetTimer);
+            _currencyView.ResetButton.onClick.AddListener(ResetTimer);
+            _currencyView.BackButton.onClick.AddListener(CloseWindow);
         }
 
         private void ClaimReward(RewardPeriod rewardPeriod)
@@ -208,7 +217,6 @@ namespace Rewards
             rewardView.CurrentDailyActiveSlot = (rewardView.CurrentDailyActiveSlot + 1) % rewardView.Rewards.Count;
         }
 
-
         private void ResetTimer()
         {
             PlayerPrefs.DeleteAll();
@@ -218,9 +226,17 @@ namespace Rewards
             CurrencyView.Instance.AddCrystal(0);
         }
 
-        private void OnDestroy()
+        private void CloseWindow()
         {
-            _resetButton.onClick.RemoveAllListeners();
+            _playerProfile.CurrentState.Value = GameState.Menu;
+        }
+
+
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+            _currencyView.BackButton.onClick.RemoveAllListeners();
+            _currencyView.ResetButton.onClick.RemoveAllListeners();
         }
     }
 }

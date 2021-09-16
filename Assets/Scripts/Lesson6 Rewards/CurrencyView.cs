@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Rewards
 {
@@ -16,6 +17,12 @@ namespace Rewards
         [SerializeField]
         private TMP_Text _crystalAmmountText;
 
+        [SerializeField]
+        private Button _backButton;
+
+        [SerializeField]
+        private Button _resetButton;
+
         private int Gold
         {
             get => PlayerPrefs.GetInt(GoldKey, 0);
@@ -27,6 +34,8 @@ namespace Rewards
             get => PlayerPrefs.GetInt(CrystalKey, 0);
             set => PlayerPrefs.SetInt(CrystalKey, value);
         }
+        public Button BackButton  => _backButton;
+        public Button ResetButton  => _resetButton; 
 
         private void Awake()
         {

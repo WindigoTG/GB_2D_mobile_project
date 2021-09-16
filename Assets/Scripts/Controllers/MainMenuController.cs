@@ -15,7 +15,7 @@ public class MainMenuController : BaseController
         _view = ResourceLoader.LoadAndInstantiateObject<MainMenuView>(References.MAIN_MENU_PREFAB_PATH, placeForUi, false);
         AddGameObject(_view.gameObject);
 
-        _view.Init(StartGame, playerProfile.SetInputMethod);
+        _view.Init(StartGame, playerProfile.SetInputMethod, DailyRewardGame);
     }
 
     private BaseController ConfigureGarageController(
@@ -55,5 +55,11 @@ public class MainMenuController : BaseController
         _playerProfile.AdsDisplay.ShowInterstitial();
                 Advertisement.AddListener(_playerProfile.AdsListener);
     }
+
+    private void DailyRewardGame()
+    {
+        _playerProfile.CurrentState.Value = GameState.Rewards;
+    }
+
 }
 

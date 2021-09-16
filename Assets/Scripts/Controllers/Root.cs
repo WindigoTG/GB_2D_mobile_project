@@ -14,7 +14,7 @@ public class Root : MonoBehaviour
     private void Awake()
     {
         var playerProfile = new PlayerProfile(15f, new UnityAnalyticsTools(), _ads);
-        playerProfile.CurrentState.Value = GameState.Start;
+        playerProfile.CurrentState.Value = GameState.Menu;
         _mainController = new MainController(_placeForUi, playerProfile, _upgradeItemDataSource);
     }
 
