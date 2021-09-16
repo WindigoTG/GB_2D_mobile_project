@@ -31,12 +31,12 @@ namespace AI
         public override void EndPhase()
         {
             gameObject.SetActive(false);
-            _combatController.StartGame();
+            _fightController.StartGame();
         }
 
-        public override void Init(Combatant player, Combatant enemy, FightView combatController)
+        public override void Init(Combatant player, Combatant enemy, FightController fightController)
         {
-            _combatController = combatController;
+            _fightController = fightController;
             _player = player;
             _enemy = enemy;
 
@@ -71,7 +71,7 @@ namespace AI
             _pointsLeft = stat.StatValue;
             _pointsLeftText.text = $"Points left: {_pointsLeft}";
 
-            if (_combatController.IsSetupDone)
+            if (_fightController.IsSetupDone)
                 _enemy.ChangePilotAbilityValue(isAssigningPoint, StatType.NonSpecified);
         }
 

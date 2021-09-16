@@ -23,9 +23,9 @@ namespace AI
             gameObject.SetActive(false);
         }
 
-        public override void Init(Combatant player, Combatant enemy, FightView combatController)
+        public override void Init(Combatant player, Combatant enemy, FightController fightController)
         {
-            _combatController = combatController;
+            _fightController = fightController;
 
             _player = player;
             _enemy = enemy;
@@ -40,7 +40,7 @@ namespace AI
         {
             _defender = (_player, action);
 
-            _combatController.ResolveCombatPhase(_attacker, _defender);
+            _fightController.ResolveCombatPhase(_attacker, _defender);
 
             EndPhase();
         }
