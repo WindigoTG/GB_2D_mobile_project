@@ -22,12 +22,17 @@ public class FightController : BaseController
 
     public bool IsSetupDone { get; private set; }
 
-    public FightController (Transform placeForUi, PlayerProfile playerProfile)
+    public FightController (AddressableUIWindowsContainer uiPrefabsContainer, PlayerProfile playerProfile)
     {
-        _fightView = ResourceLoader.LoadAndInstantiateObject<FightView>(References.FIGHT_VIEW_PREFAB_PATH, placeForUi, false);
-        AddGameObject(_fightView.gameObject);
+        CreateAddressablesPrefab<FightView>(uiPrefabsContainer.FightWindowPrefab, uiPrefabsContainer.PlaceForUi, InitializeView);
 
         _playerProfile = playerProfile;
+    }
+
+    private void InitializeView(FightView view)
+    {
+        _fightView = view;
+
         _fightView.ButtonLeaveFight.onClick.AddListener(LeaveFight);
 
         Setup();

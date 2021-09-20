@@ -22,18 +22,36 @@ namespace Rewards
         private float _progressDaily;
         private float _progressWeekly;
 
-        public RewardController(Transform placeForUi, PlayerProfile playerProfile)
+        public RewardController(AddressableUIWindowsContainer uiPrefabsContainer, PlayerProfile playerProfile)
         {
-            _weeklyRewardView = ResourceLoader.LoadAndInstantiateObject<RewardView>(References.WEEKLY_REWARD_VIEW_PREFAB_PATH, placeForUi, false);
-            AddGameObject(_weeklyRewardView.gameObject);
-            _dailyRewardView = ResourceLoader.LoadAndInstantiateObject<RewardView>(References.DAILY_REWARD_VIEW_PREFAB_PATH, placeForUi, false);
-            AddGameObject(_dailyRewardView.gameObject);
-            _currencyView = ResourceLoader.LoadAndInstantiateObject<CurrencyView>(References.CURRENCY_VIEW_PREFAB_PATH, placeForUi, false);
-            AddGameObject(_currencyView.gameObject);
+            CreateAddressablesPrefab<RewardView>(uiPrefabsContainer.DailyRewardsWindowPrefab, uiPrefabsContainer.PlaceForUi, InitializeDailyView);
+            CreateAddressablesPrefab<RewardView>(uiPrefabsContainer.WeeklyRewardsWindowPrefab, uiPrefabsContainer.PlaceForUi, InitializeWeeklyView);
+            CreateAddressablesPrefab<CurrencyView>(uiPrefabsContainer.CurrencyWindowPrefab, uiPrefabsContainer.PlaceForUi, InitializeCurrencyView);
 
             _playerProfile = playerProfile;
+        }
 
-            RefreshView();
+        private void InitializeWeeklyView(RewardView view)
+        {
+            _weeklyRewardView = view;
+
+            if (_weeklyRewardView != null && _dailyRewardView != null && _currencyView != null)
+                RefreshView();
+        }
+        private void InitializeDailyView(RewardView view)
+        {
+            _dailyRewardView = view;
+
+            if (_weeklyRewardView != null && _dailyRewardView != null && _currencyView != null)
+                RefreshView();
+        }
+
+        private void InitializeCurrencyView(CurrencyView view)
+        {
+            _currencyView = view;
+
+            if (_weeklyRewardView != null && _dailyRewardView != null && _currencyView != null)
+                RefreshView();
         }
 
         public void RefreshView()

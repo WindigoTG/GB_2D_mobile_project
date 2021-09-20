@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3009550545
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f46c2eb3c6f10a5c7448fcde76fcb1b2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4df8c69f2c8a6ad9e3cbf82bb83e4dc3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sprites/UI_Graphic_Resource_Coins.png
+- Assets/Sprites/UI_Graphic_Resource_Gems.png
+- Assets/Sprites/UI_Graphic_Resource_Iron.png
+Dependencies: []

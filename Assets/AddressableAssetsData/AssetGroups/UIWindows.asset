@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UIWindows
+  m_EditorClassIdentifier: 
+  m_GroupName: Packed Assets1
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4ce00bff0138dd84e8b44c82ba12e09c
+  m_SerializeEntries:
+  - m_GUID: 7aa646ce38530454e869b64776a9cc0c
+    m_Address: Assets/Prefabs/currency_window.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 3458717056384868746, guid: 7aa646ce38530454e869b64776a9cc0c, type: 3}
+    m_TargetAsset: {fileID: 3458717056384868746, guid: 7aa646ce38530454e869b64776a9cc0c, type: 3}
+  - m_GUID: 560f23ab8ac35d847a4edd79939cb10f
+    m_Address: Assets/Prefabs/daily_reward_window.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 1444455464388094955, guid: 560f23ab8ac35d847a4edd79939cb10f, type: 3}
+    m_TargetAsset: {fileID: 1444455464388094955, guid: 560f23ab8ac35d847a4edd79939cb10f, type: 3}
+  - m_GUID: 7f1778d520fad25468c8fa99860f9352
+    m_Address: Assets/Prefabs/fight_window.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 6413921265997150267, guid: 7f1778d520fad25468c8fa99860f9352, type: 3}
+    m_TargetAsset: {fileID: 6413921265997150267, guid: 7f1778d520fad25468c8fa99860f9352, type: 3}
+  - m_GUID: f73b5ceaabd6ca94b894ab0f3d4f7577
+    m_Address: Assets/Prefabs/mainMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 6015533690559672758, guid: f73b5ceaabd6ca94b894ab0f3d4f7577, type: 3}
+    m_TargetAsset: {fileID: 6015533690559672758, guid: f73b5ceaabd6ca94b894ab0f3d4f7577, type: 3}
+  - m_GUID: c3ca1cbe950eb174b90c18aeb023a3ee
+    m_Address: Assets/Prefabs/start_fight_window.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 2439988909935648079, guid: c3ca1cbe950eb174b90c18aeb023a3ee, type: 3}
+    m_TargetAsset: {fileID: 2439988909935648079, guid: c3ca1cbe950eb174b90c18aeb023a3ee, type: 3}
+  - m_GUID: 69fbb3876ec2b9d4da98a6058191c7e1
+    m_Address: Assets/Prefabs/weekly_reward_window.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 8692603213542022210, guid: 69fbb3876ec2b9d4da98a6058191c7e1, type: 3}
+    m_TargetAsset: {fileID: 8692603213542022210, guid: 69fbb3876ec2b9d4da98a6058191c7e1, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 83653bf8b899f614ca84cbefef5efeb4, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ced88b6c5ae43f643bdcd53cedc6ba01, type: 2}
+    - {fileID: 11400000, guid: a0ca59cbb4fc5da4cb3658aff10e6096, type: 2}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Packed Assets
+  m_EditorClassIdentifier: 
+  m_GroupName: Packed Assets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2e9615b0abefaba439dd9f9d980162d2
+  m_SerializeEntries:
+  - m_GUID: 808b107f96952644d83e50b5b8f32fc5
+    m_Address: Assets/Prefabs/Button.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    m_MainAsset: {fileID: 4017260407874243878, guid: 808b107f96952644d83e50b5b8f32fc5, type: 3}
+    m_TargetAsset: {fileID: 4017260407874243878, guid: 808b107f96952644d83e50b5b8f32fc5, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 83653bf8b899f614ca84cbefef5efeb4, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7d58ba6b375f1a3478fa4c8ca1829b58, type: 2}
+    - {fileID: 11400000, guid: 92ad8e443d24ba34bb24e251482c3a4b, type: 2}

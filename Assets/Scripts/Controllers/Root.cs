@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Root : MonoBehaviour
 {
-    [SerializeField] private Transform _placeForUi;
+    [SerializeField] private AddressableUIWindowsContainer _addressablesContainer;
     [SerializeField] private UnityAdsTools _ads;
     [SerializeField] private UpgradeItemConfigDataSource _upgradeItemDataSource;
 
@@ -15,7 +15,7 @@ public class Root : MonoBehaviour
     {
         var playerProfile = new PlayerProfile(15f, new UnityAnalyticsTools(), _ads);
         playerProfile.CurrentState.Value = GameState.Menu;
-        _mainController = new MainController(_placeForUi, playerProfile, _upgradeItemDataSource);
+        _mainController = new MainController(_addressablesContainer, playerProfile, _upgradeItemDataSource);
     }
 
     protected void OnDestroy()
