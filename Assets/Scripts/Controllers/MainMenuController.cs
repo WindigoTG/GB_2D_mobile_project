@@ -7,15 +7,18 @@ using System.Linq;
 public class MainMenuController : BaseController
 {
     private readonly PlayerProfile _playerProfile;
-    private readonly MainMenuView _view;
+    private MainMenuView _view;
 
-    public MainMenuController(Transform placeForUi, PlayerProfile playerProfile)
+    public MainMenuController(AddressableUIWindowsContainer uiPrefabsContainer, PlayerProfile playerProfile)
     {
         _playerProfile = playerProfile;
-        _view = ResourceLoader.LoadAndInstantiateObject<MainMenuView>(References.MAIN_MENU_PREFAB_PATH, placeForUi, false);
-        AddGameObject(_view.gameObject);
+        CreateAddressablesPrefab<MainMenuView>(uiPrefabsContainer.MainMenuWindowPrefab, uiPrefabsContainer.PlaceForUi, InitializeView);
+    }
 
-        _view.Init(StartGame, playerProfile.SetInputMethod, DailyRewardGame);
+    private void InitializeView(MainMenuView view)
+    {
+        _view = view;
+        _view.Init(StartGame, _playerProfile.SetInputMethod, DailyRewardGame);
     }
 
     private BaseController ConfigureGarageController(
