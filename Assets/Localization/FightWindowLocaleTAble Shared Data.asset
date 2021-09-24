@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: FightWindowLocaleTAble Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: FightWindowLocaleTAble
+  m_TableCollectionNameGuidString: 40b0b84e42322794c8156d011bb092df
+  m_Entries:
+  - m_Id: 141882540032
+    m_Key: fw_enemy_hp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 620431654912
+    m_Key: fw_player_hp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12120235950080
+    m_Key: fw_melee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12713310535680
+    m_Key: fw_ranged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12962301198336
+    m_Key: fw_accuracy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13217423933440
+    m_Key: fw_evasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13533770924032
+    m_Key: fw_defence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15024514646016
+    m_Key: fw_skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15382687236096
+    m_Key: fw_morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15705086607360
+    m_Key: fw_driver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16040236662784
+    m_Key: fw_truck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16254863392768
+    m_Key: fw_targeting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16644598120448
+    m_Key: fw_armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16852325220352
+    m_Key: fw_mobility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17127714832384
+    m_Key: fw_weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17313778352128
+    m_Key: fw_weap_mel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17585258872832
+    m_Key: fw_weap_ran
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17894538461184
+    m_Key: fw_dmg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18099195330560
+    m_Key: fw_acc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18337498906624
+    m_Key: fw_crt
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1632457810214

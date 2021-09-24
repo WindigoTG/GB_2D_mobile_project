@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,8 +25,8 @@ namespace AI
         [SerializeField]
         private Button _buttonLeaveFight;
 
-
-        public Button ButtonLeaveFight => ButtonLeaveFight1;
+        [SerializeField]
+        private Button _buttonSwitchLocale;
 
         public StatsUIHandler PlayerStatsDisplay => _playerStatsDisplay;
         public StatsUIHandler EnemyStatsDisplay => _enemyStatsDisplay;
@@ -36,6 +35,7 @@ namespace AI
         public GamePhase EnemyPhaseWindow => _enemyPhaseWindow;
         public Image PlayerViewImage => _playerViewImage;
         public Image EnemyViewImage => _enemyViewImage;
-        public Button ButtonLeaveFight1 => _buttonLeaveFight;
+        public Button ButtonLeaveFight => _buttonLeaveFight;
+        public Button ButtonSwitchLocale => _buttonSwitchLocale; 
     }
 }

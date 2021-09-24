@@ -2,6 +2,7 @@ using UnityEngine;
 using AI;
 using Profile;
 using System.Collections.Generic;
+using UnityEngine.Localization.Settings;
 
 public class FightController : BaseController
 {
@@ -22,6 +23,8 @@ public class FightController : BaseController
 
     public bool IsSetupDone { get; private set; }
 
+    private int _currentLocaleIndex = 0;
+
     public FightController (AddressableUIWindowsContainer uiPrefabsContainer, PlayerProfile playerProfile)
     {
         CreateAddressablesPrefab<FightView>(uiPrefabsContainer.FightWindowPrefab, uiPrefabsContainer.PlaceForUi, InitializeView);
@@ -34,6 +37,7 @@ public class FightController : BaseController
         _fightView = view;
 
         _fightView.ButtonLeaveFight.onClick.AddListener(LeaveFight);
+        _fightView.ButtonSwitchLocale.onClick.AddListener(SwitchLocale);
 
         Setup();
     }
@@ -48,6 +52,8 @@ public class FightController : BaseController
 
         _player.SetUp(_fightView.PlayerViewImage);
         _enemy.SetUp(_fightView.EnemyViewImage);
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_currentLocaleIndex];
 
         IsSetupDone = true;
     }
@@ -253,10 +259,18 @@ public class FightController : BaseController
         _playerProfile.CurrentState.Value = GameState.Game;
     }
 
+    private void SwitchLocale()
+    {
+        _currentLocaleIndex = _currentLocaleIndex > 0 ? _currentLocaleIndex - 2 : _currentLocaleIndex + 2;
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_currentLocaleIndex];
+    }
+
     protected override void OnDispose()
     {
         base.OnDispose();
         _fightView.ButtonLeaveFight.onClick.RemoveAllListeners();
+        _fightView.ButtonSwitchLocale.onClick.RemoveAllListeners();
     }
 }
 

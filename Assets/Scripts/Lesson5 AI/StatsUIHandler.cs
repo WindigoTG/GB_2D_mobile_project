@@ -31,47 +31,47 @@ namespace AI
             switch (dataType)
             {
                 case StatType.Accuracy:
-                    _accuracyStatText.text = $"Accuracy: {stat.StatValue}";
+                    _accuracyStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Armor:
-                    _armorStatText.text = $"Armor: {stat.StatValue}";
+                    _armorStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Defence:
-                    _defenceStatText.text = $"Defence: {stat.StatValue}";
+                    _defenceStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Evasion:
-                    _evasionStatText.text = $"Evasion: {stat.StatValue}";
+                    _evasionStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Melee:
-                    _meleeStatText.text = $"Melee: {stat.StatValue}";
+                    _meleeStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Mobility:
-                    _mobilityStatText.text = $"Mobility: {stat.StatValue}";
+                    _mobilityStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Morale:
-                    _moraleStatText.text = $"Morale: {stat.StatValue}";
+                    _moraleStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Ranged:
-                    _rangedStatText.text = $"Ranged: {stat.StatValue}";
+                    _rangedStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Skill:
-                    _skillStatText.text = $"Skill: {stat.StatValue}";
+                    _skillStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Targeting:
-                    _targetingStatText.text = $"Targeting: {stat.StatValue}";
+                    _targetingStatText.text = $"{stat.StatValue}";
                     break;
 
                 case StatType.Health:
-                    _healthText.text = $"Targeting: {stat.StatValue}";
+                    _healthText.text = $"{stat.StatValue}";
                     break;
 
                 default:
