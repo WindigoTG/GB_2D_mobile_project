@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 21009e8a7cfe2b647a0a52be3f1c1f09
+  m_SerializeEntries:
+  - m_GUID: 716fdf6c081e92b4688e388a0300ab27
+    m_Address: Assets/Localization/Text Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 0ad6f24ea48342247b850d4bd25a875d
+    m_Address: Assets/Localization/Image Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 40b0b84e42322794c8156d011bb092df
+    m_Address: Assets/Localization/FightWindowLocaleTAble Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 83653bf8b899f614ca84cbefef5efeb4, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 55165b89922cf2c45bca99e03eb4c513, type: 2}
+    - {fileID: 11400000, guid: 60894587318b5884f974e19bd1d85a65, type: 2}

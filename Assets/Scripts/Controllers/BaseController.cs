@@ -11,6 +11,7 @@ public class BaseController : IDisposable
     private List<GameObject> _gameObjects = new List<GameObject>();
     private List<AsyncOperationHandle<GameObject>> _addressablePrefabs = new List<AsyncOperationHandle<GameObject>>();
     private bool _isDisposed;
+    Animator animator;
     
     public void Dispose()
     {
